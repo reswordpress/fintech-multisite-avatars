@@ -24,7 +24,7 @@ acf_add_local_field_group(array(
       'label' => 'Avatar',
       'name' => 'sys_' . $site_slug . '_avatar',
       'type' => 'image',
-      'instructions' => '',
+      'instructions' => 'Min width 512px, Max width 1024px, jpg or png Max size 2MB',
       'required' => 0,
       'conditional_logic' => 0,
       'wrapper' => array(
@@ -132,7 +132,7 @@ function mytheme_default_avatar( $avatar_defaults ) {
 
     $site_url = site_url( '/images/', 'https' );
 
-    $new_avatar_url = $site_url . 'default-avatar.png';
+    $new_avatar_url = $site_url . 'avatar.png';
 
     if( $avatar != $new_avatar_url ) {
 
@@ -160,7 +160,7 @@ function shortcode_user_avatar() {
 
     $site_url = site_url( '/images/', 'https' );
 
-    return get_avatar( $site_url .  'default-avatar.png', 512 );
+    return get_avatar( $site_url .  'avatar.png', 512 );
   }
 }
 add_shortcode('display-user-avatar','shortcode_user_avatar');
